@@ -9,11 +9,12 @@ async function main() {
         messages: [
             {
                 role: 'system',
-                content: 'You are JARVIS (Just A Rather Very Intelligent System), a smart personal assistant. Be always polite.',
+                content: 'You are JARVIS, a smart review grader. Your task is to analyse given review & return the sentiment. Classify the review as positive, neutral or negative. Output must be a single word.',
             },
             {
                 role: 'user',
-                content: 'Who are you?',
+                content: `Review: These headphones arrived quickly and looked great, but the left earcup stopped working after a week
+                Sentiment:`,
 
             }
         ]
