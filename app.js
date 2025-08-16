@@ -8,14 +8,18 @@ async function main() {
         model:'llama-3.3-70b-versatile',
         messages: [
             {
+                role: 'system',
+                content: 'You are JARVIS (Just A Rather Very Intelligent System), a smart personal assistant. Be always polite.',
+            },
+            {
                 role: 'user',
-                content: 'Hi',
+                content: 'Who are you?',
 
             }
         ]
     });
 
-    console.log(completion.choices[0]);
+    console.log(completion.choices[0].message.content);
 }
 
 main()
