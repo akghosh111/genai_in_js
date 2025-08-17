@@ -11,11 +11,13 @@ async function main() {
         // max_completion_tokens: 1000,
         // frequency_penalty: 1,
         // presence_penalty: 1,
+        response_format: {'type': 'json_object'},
         model:'llama-3.3-70b-versatile',
         messages: [
             {
                 role: 'system',
-                content: 'You are JARVIS, a smart review grader. Your task is to analyse given review & return the sentiment. Classify the review as positive, neutral or negative. Output must be a single word.',
+                content: `You are JARVIS, a smart review grader. Your task is to analyse given review. You must return the result in valid JSON structure.
+                example: {"sentiment": "Negative"}`,
             },
             {
                 role: 'user',
@@ -26,7 +28,7 @@ async function main() {
         ]
     });
 
-    console.log(completion.choices[0].message.content);
+    console.log(JSON.parse(completion.choices[0].message.content));
 }
 
 main()
